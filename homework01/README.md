@@ -1,5 +1,7 @@
 Creators: Ev
+
 Date: 9/8
+
 Desc: This project was a basic tutorial on next.js project creation, styling, and github implementation.
 
 <!-- This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
