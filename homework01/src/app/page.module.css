@@ -19,7 +19,7 @@
   
   .homeNav ul li a {
     text-decoration: none;
-    color: black;
+    color: wheat;
     font-size: 20px;
     font-family: Arial, Helvetica, sans-serif
   }
@@ -35,9 +35,7 @@
     justify-content: space-between;
     max-width: 500px;
     font-family: Arial, Helvetica, sans-serif;
-    
   }
-
   .info button{
     padding: 15px;
     border-radius: 15px;
@@ -52,4 +50,21 @@
     text-decoration: none;
     color: darkgreen;
     font-size: 20px;
+}
+
+
+.siteFooter{
+    background-color: darkgreen;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    color: wheat;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.siteFooter p{
+    margin-top: 20px;
 }

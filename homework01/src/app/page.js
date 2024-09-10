@@ -61,7 +61,9 @@ export default function Home() {
     />
     </div>
       </div>
-
+    <footer className={homeStyles.siteFooter}>
+      <p>Copyright 2024 Ev's Albums</p>
+    </footer>
     </main>
   );
 }
