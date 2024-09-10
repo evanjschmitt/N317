@@ -1,7 +1,18 @@
+"use client";
+import homeStyles from "./page.module.css";
+
 export default function Home() {
+  const headerStyle = {
+    backgroundcolor: "slategrey",
+    height: "100px",
+    display: "flex",
+    alignitems: "center",
+    justifyContent: "center"
+  
+  }
   return (
     <main>
-      <nav>
+      <nav className={homeStyles.homeNav}>
         <ul>
           <li>
             <a href="#">Home</a>

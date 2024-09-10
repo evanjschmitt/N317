@@ -1,0 +1,31 @@
+.homeNav {
+    height: 50px;
+    width: 100%;
+    background-color: lightgreen;
+  }
+  
+  .homeNav ul {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+  }
+  
+  .homeNav ul li {
+    list-style: none;
+  }
+  
+  .homeNav ul li a {
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif
+  }
+  .homeNav a:hover {
+    font-weight: bolder;
+  }
+
+  
+  
