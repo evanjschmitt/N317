@@ -3,13 +3,10 @@ import homeStyles from "@/app/page.module.css";
 import Image from 'next/image';
 
 export default function Home() {
-  const headerStyle = {
-    backgroundcolor: "slategrey",
-    height: "100px",
-    display: "flex",
-    alignitems: "center",
-    justifyContent: "center"
-  
+  const heading = {
+    margin: "20px",
+    fontFamily: "Arial",
+    
   }
   return (
     <main>
@@ -29,11 +26,14 @@ export default function Home() {
           </li>
         </ul>
       </nav>
+      <h1 style={heading}>Albums</h1>
       <div className={homeStyles.showcase}>
       <div className={homeStyles.info}>
         <h2>Jimmy Buffett</h2>
         <h4>Living and Dying in 3/4 Time</h4>
         <p>$25.99</p>
+        <button><a href="#">Buy Now!</a></button>
+
     </div>
     <div className={homeStyles.coverImg}>
     <Image
@@ -50,6 +50,7 @@ export default function Home() {
          <h2>Noah Kahan</h2>
           <h4>Live From Fenway Park</h4>
           <p>$29.99</p>
+          <button><a href="#">Buy Now!</a></button>
        </div>
     <div className={homeStyles.coverImg}>
     <Image

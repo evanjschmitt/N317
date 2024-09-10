@@ -1,7 +1,7 @@
 .homeNav {
     height: 50px;
     width: 100%;
-    background-color: lightgreen;
+    background-color: darkgreen;
   }
   
   .homeNav ul {
@@ -27,5 +27,29 @@
     font-weight: bolder;
   }
 
-  
-  
+  .showcase {
+    margin-left: 20px;
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 500px;
+    font-family: Arial, Helvetica, sans-serif;
+    
+  }
+
+  .info button{
+    padding: 15px;
+    border-radius: 15px;
+    text-decoration: none;
+  }
+
+.info button:hover {
+    background-color: darkgray;
+}
+
+.info a {
+    text-decoration: none;
+    color: darkgreen;
+    font-size: 20px;
+}
