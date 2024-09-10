@@ -1,5 +1,6 @@
 "use client";
-import homeStyles from "./page.module.css";
+import homeStyles from "@/app/page.module.css";
+import Image from 'next/image';
 
 export default function Home() {
   const headerStyle = {
@@ -28,6 +29,38 @@ export default function Home() {
           </li>
         </ul>
       </nav>
+      <div className={homeStyles.showcase}>
+      <div className={homeStyles.info}>
+        <h2>Jimmy Buffett</h2>
+        <h4>Living and Dying in 3/4 Time</h4>
+        <p>$25.99</p>
+    </div>
+    <div className={homeStyles.coverImg}>
+    <Image
+      src="/img/jimmy.png"
+      alt="Jimmy Buffett Album Cover"
+      width={250}
+      height={250}
+    />
+    </div>
+      </div>
+
+      <div className={homeStyles.showcase}>
+        <div className={homeStyles.info}>
+         <h2>Noah Kahan</h2>
+          <h4>Live From Fenway Park</h4>
+          <p>$29.99</p>
+       </div>
+    <div className={homeStyles.coverImg}>
+    <Image
+      src="/img/noah.png"
+      alt="Noah Kahan Album Cover"
+      width={250}
+      height={250}
+    />
+    </div>
+      </div>
+
     </main>
   );
 }
