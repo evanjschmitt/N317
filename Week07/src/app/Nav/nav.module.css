@@ -1,0 +1,11 @@
+.mainNav {
+  height: 50px;
+  background-color: blueviolet;
+  color: white;
+}
+
+.mainNav ul {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
