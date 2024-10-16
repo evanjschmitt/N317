@@ -1,0 +1,23 @@
+.miniNav {
+    height: 50px;
+    background-color: #0f8641;
+}
+
+.miniNav ul {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 100%;
+}
+
+.miniNav ul li {
+list-style:  none;
+}
+
+.miniNav ul li a {
+    text-decoration: none;
+    font-size: 20px;
+    color: #dcdada;
+}
+
