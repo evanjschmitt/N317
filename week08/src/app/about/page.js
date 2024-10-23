@@ -21,6 +21,16 @@ export default function About() {
 
     const appState = useAppState();
     // console.log(appState);
+
+    const peopleJsx = appState.people.map(function (peep, peepIndex) {
+        return (
+            <li key={`${peep.name}-${peep.title}`}>
+                {peep.name} (<i>{peep.title}</i>)
+            </li>
+        );
+    })
+
+
     return (
         <main>
             <h1>About</h1>
@@ -37,6 +47,7 @@ export default function About() {
                     <input type="submit" value="Add Person"></input>
                 </div>
             </form>
+            <ul>{peopleJsx}</ul>
         </main>
     )
 }
