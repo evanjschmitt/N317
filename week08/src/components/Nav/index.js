@@ -1,20 +1,21 @@
 import navStyles from "./nav.module.css"
+import Link from "next/link";
 
 export default function Nav() {
     return (
         <nav className={navStyles.miniNav}>
             <ul>
                 <li>
-                    <a href="/">HOME</a>
+                    <Link href="/">HOME</Link>
                 </li>
                 <li>
-                    <a href="/about">ABOUT</a>
+                    <Link href="/about">ABOUT</Link>
                 </li>
                 <li>
-                    <a href="/">PRODUCTS</a>
+                    <Link href="/">PRODUCTS</Link>
                 </li>
                 <li>
-                    <a href="/">CONTACT</a>
+                    <Link href="/">CONTACT</Link>
                 </li>
             </ul>
         </nav>
