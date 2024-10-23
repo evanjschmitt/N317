@@ -13,7 +13,7 @@ export default function About() {
 
     function submitNewPerson(e) {
         e.preventDefault();
-        console.log(newPersonForm)
+        // console.log(newPersonForm)
         appState.addPerson(newPersonForm);
         setNewPersoForm({name: "", title: ""})
     }
