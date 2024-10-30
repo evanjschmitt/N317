@@ -13,7 +13,7 @@ export default function PokemonCard({ img = "", name = "", types = [] }) {
       <div>
         <h4>{name}</h4>
         <p>
-          <i>Types: {typesJsx}</i>
+          <i>Type(s): {typesJsx}</i>
         </p>
       </div>
     </div>
