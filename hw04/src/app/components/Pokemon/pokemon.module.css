@@ -1,18 +1,18 @@
 .pokeCard {
-    height: 400px;
-    width: 300px;
-    background-color: lightblue;
+  height: 400px;
+  width: 300px;
+  background-color: #b0ccd5;
 }
 
 .pokeCard img {
-    height: calc(400px - 125px);
+  height: calc(400px - 125px);
 }
 
 .pokeCard div {
-    height: 125px;
-    background-color: blue;
+  height: 125px;
+  background-color: #a8ebff;
 }
 
-.pokeCard p {
-    font-size: 20px;
+.pokeCard div h4 {
+  font-size: 20px;
 }

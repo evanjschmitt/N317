@@ -1,16 +1,22 @@
+
 "use client";
 import pokemonStyles from "./pokemon.module.css";
-export default function PokemonCard([img = "", name = "", type = ""]) {
-    return (
-        <div style={"pokemonStyles.pokeCard"}>
-            <img src="#"/>
-        
-        <div>
-            <h4>Meowth</h4>
-            <p>
-                <i>Types: Normal</i>
-            </p>
-        </div>
-        </div>
-    )
+
+export default function PokemonCard({ img = "", name = "", types = [] }) {
+  const typesJsx = types
+    .map(function (typeObj) {
+      return typeObj.type.name;
+    })
+    .join(", ");
+  return (
+    <div className={pokemonStyles.pokeCard}>
+      <img src={img} />
+      <div>
+        <h4>{name}</h4>
+        <p>
+          <i>Types: {typesJsx}</i>
+        </p>
+      </div>
+    </div>
+  );
 }
