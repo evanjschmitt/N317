@@ -1,8 +1,6 @@
-import { Inter } from "next/font/google";
 import "./globals.css";
-import PokemonCard from "./components/Pokemon/PokemonCard";
-
-const inter = Inter({ subsets: ["latin"] });
+import Nav from "@/components/Nav";
+import { PokemonProvider } from "@/hooks/usePokemonApi";
 
 export const metadata = {
   title: "Create Next App",
@@ -13,7 +11,10 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
-        <PokemonCard></PokemonCard>
+        <PokemonProvider>
+          <Nav />
+          {children}
+        </PokemonProvider>
       </body>
     </html>
   );

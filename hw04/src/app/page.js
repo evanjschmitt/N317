@@ -1,8 +1,8 @@
 "use client";
-import usePokemonApi from "./hooks/usePokemonApi.js";
+import usePokemonApi from "@/hooks/usePokemonApi";
 import { useEffect } from "react";
 import homeStyles from "./page.module.css";
-import PokemonCard from "./components/Pokemon/PokemonCard";
+import PokemonCard from "@/components/Pokemon/PokemonCard";
 
 export default function Home() {
   const pokeData = usePokemonApi();
@@ -13,7 +13,6 @@ export default function Home() {
     }
     if (!pokeData.randomPokemon.length) {
       pokeData.getRandomPokemon(3);
-      console.log(randomPokemon);
     }
   }, [pokeData]);
 

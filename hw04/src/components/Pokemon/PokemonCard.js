@@ -1,4 +1,3 @@
-
 "use client";
 import pokemonStyles from "./pokemon.module.css";
 
