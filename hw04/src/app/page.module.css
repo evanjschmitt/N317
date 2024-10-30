@@ -1,0 +1,10 @@
+.mainContent {
+  text-align: center;
+}
+
+.mainContent section {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  column-gap: 20px;
+  justify-items: center;
+}
