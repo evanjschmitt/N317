@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
-import SearchBar from "@/components/SearchBar/page.js";
+import SearchBar from "@/components/SearchBar";
+import PokemonCard from "@/components/Pokemon";
 
 export default function Search() {
   const [pokemonList, setPokemonList] = useState([]);
@@ -10,7 +11,7 @@ export default function Search() {
     let results = [];
 
     try {
-      // Fetch a large set of Pokémon and filter by name if it is provided
+      // Step 1: Fetch a large list of Pokémon and filter by name if provided
       if (name) {
         const nameResponse = await fetch(
           "https://pokeapi.co/api/v2/pokemon?limit=1000"
@@ -19,11 +20,10 @@ export default function Search() {
         const nameFilteredResults = nameData.results.filter((pokemon) =>
           pokemon.name.toLowerCase().includes(name.toLowerCase())
         );
-
         results = nameFilteredResults;
       }
 
-      // Fetch by habitat
+      // Step 2: Fetch by habitat
       if (habitat) {
         const habitatResponse = await fetch(
           `https://pokeapi.co/api/v2/pokemon-habitat/${habitat}`
@@ -37,7 +37,7 @@ export default function Search() {
         }
       }
 
-      // Fetch by egg group
+      // Step 3: Fetch by egg group
       if (eggGroup) {
         const eggGroupResponse = await fetch(
           `https://pokeapi.co/api/v2/egg-group/${eggGroup}`
@@ -53,20 +53,41 @@ export default function Search() {
         }
       }
 
-      // Update the state with the final filtered results
-      setPokemonList(results);
+      // Step 4: Fetch detailed data for each Pokémon result
+      const detailedResults = await Promise.all(
+        results.map(async (pokemon) => {
+          const response = await fetch(
+            `https://pokeapi.co/api/v2/pokemon/${pokemon.name}`
+          );
+          if (response.ok) {
+            const detailedData = await response.json();
+            return {
+              name: detailedData.name,
+              sprites: detailedData.sprites,
+              types: detailedData.types,
+            };
+          }
+          return null;
+        })
+      );
+
+      // Filter out any null values (e.g., if a fetch failed)
+      setPokemonList(detailedResults.filter((data) => data !== null));
     } catch (error) {
       console.error("Error fetching Pokémon:", error);
     }
   };
-
   return (
     <div>
       <SearchBar onSearch={handleSearch} />
       <ul>
         {pokemonList.map((pokemon, index) => (
           <li key={index}>
-            {typeof pokemon === "string" ? pokemon : pokemon.name}
+            <PokemonCard
+              img={pokemon.sprites?.front_default}
+              name={pokemon.name}
+              types={pokemon.types || []}
+            />
           </li>
         ))}
       </ul>

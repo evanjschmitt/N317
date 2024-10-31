@@ -2,15 +2,14 @@
 import { useState, useEffect } from "react";
 
 export default function SearchBar({ onSearch }) {
-  const [eggGroup, setEggGroup] = useState([]);
-  const [habitat, setHabitat] = useState([]);
+  const [eggGroups, setEggGroups] = useState([]);
+  const [habitats, setHabitats] = useState([]);
   const [filters, setFilters] = useState({
     name: "",
     habitat: "",
     eggGroup: "",
   });
 
-  // Fetch egg groups and habitats on load
   useEffect(() => {
     const fetchDropdownData = async () => {
       try {
@@ -18,7 +17,7 @@ export default function SearchBar({ onSearch }) {
           `https://pokeapi.co/api/v2/egg-group/`
         );
         const habitatResponse = await fetch(
-          `https://pokeapi.co/api/v2/pokemon-habitats/`
+          `https://pokeapi.co/api/v2/pokemon-habitat/`
         );
 
         if (eggGroupResponse.ok && habitatResponse.ok) {
@@ -37,28 +36,48 @@ export default function SearchBar({ onSearch }) {
     fetchDropdownData();
   }, []);
 
-  // Handle dropdown change
+  // Update filter values when inputs change
   const handleFilterChange = (e) => {
     setFilters({
       ...filters,
       [e.target.name]: e.target.value,
     });
   };
+
   return (
     <div>
       <input
         type="text"
+        name="name"
         placeholder="Name"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
+        value={filters.name}
+        onChange={handleFilterChange}
       />
-      <select value={habitat} onChange={(e) => setHabitat(e.target.value)}>
-        {/* Add habitat options here */}
+      <select
+        name="habitat"
+        value={filters.habitat}
+        onChange={handleFilterChange}
+      >
+        <option value="">Select Habitat</option>
+        {habitats.map((hab) => (
+          <option key={hab} value={hab}>
+            {hab}
+          </option>
+        ))}
       </select>
-      <select value={eggGroup} onChange={(e) => setEggGroup(e.target.value)}>
-        {/* Add egg group options here */}
+      <select
+        name="eggGroup"
+        value={filters.eggGroup}
+        onChange={handleFilterChange}
+      >
+        <option value="">Select Egg Group</option>
+        {eggGroups.map((eg) => (
+          <option key={eg} value={eg}>
+            {eg}
+          </option>
+        ))}
       </select>
-      <button onClick={handleSearch}>Search</button>
+      <button onClick={() => onSearch(filters)}>Search</button>
     </div>
   );
 }

@@ -2,7 +2,7 @@
 import usePokemonApi from "@/hooks/usePokemonApi";
 import { useEffect } from "react";
 import homeStyles from "./page.module.css";
-import PokemonCard from "@/components/Pokemon/PokemonCard";
+import PokemonCard from "@/components/Pokemon";
 
 export default function Home() {
   const pokeData = usePokemonApi();
