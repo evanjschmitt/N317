@@ -2,7 +2,6 @@
 import { useState, useEffect } from "react";
 import PokemonCard from "@/components/Pokemon";
 import pageStyles from "../page.module.css";
-import { pages } from "next/dist/build/templates/app-page";
 
 export default function FavoritesPage() {
   const [favorites, setFavorites] = useState([]);
