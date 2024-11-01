@@ -1,6 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
-
+import searchStyles from "./searchBar.module.css";
 export default function SearchBar({ onSearch }) {
   const [eggGroups, setEggGroups] = useState([]);
   const [habitats, setHabitats] = useState([]);
@@ -47,6 +47,7 @@ export default function SearchBar({ onSearch }) {
   return (
     <div>
       <input
+        className={searchStyles.searchBar}
         type="text"
         name="name"
         placeholder="Name"
@@ -54,6 +55,7 @@ export default function SearchBar({ onSearch }) {
         onChange={handleFilterChange}
       />
       <select
+        className={searchStyles.dropDowns}
         name="habitat"
         value={filters.habitat}
         onChange={handleFilterChange}
@@ -66,6 +68,7 @@ export default function SearchBar({ onSearch }) {
         ))}
       </select>
       <select
+        className={searchStyles.dropDowns}
         name="eggGroup"
         value={filters.eggGroup}
         onChange={handleFilterChange}
@@ -77,7 +80,7 @@ export default function SearchBar({ onSearch }) {
           </option>
         ))}
       </select>
-      <button onClick={() => onSearch(filters)}>Search</button>
+      <button className={searchStyles.searchButton} onClick={() => onSearch(filters)}>Search</button>
     </div>
   );
 }

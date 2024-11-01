@@ -1,0 +1,17 @@
+.searchBar {
+    width: 300px;
+    height: 25px;
+  }
+
+  .dropDowns {
+    height: 25px;
+    background-color: #3f0d12;
+    color: #E6EED6;
+  }
+
+  .searchButton {
+    padding: 10px 20px;
+    margin-left: 10px;
+    background-color: #30a73a6c;
+    border-radius: 10px;
+  }

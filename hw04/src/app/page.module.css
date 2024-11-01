@@ -13,3 +13,17 @@
   column-gap: 20px;
   justify-items: center;
 }
+
+.searchHolder {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.favoritesHolder {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}

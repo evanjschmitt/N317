@@ -2,9 +2,11 @@
 import { useState } from "react";
 import SearchBar from "@/components/SearchBar";
 import PokemonCard from "@/components/Pokemon";
+import pageStyles from "../page.module.css";
 
 export default function Search() {
   const [pokemonList, setPokemonList] = useState([]);
+  // const { addFavorite } = useFavorites();
 
   const handleSearch = async (filters) => {
     const { name, habitat, eggGroup } = filters;
@@ -78,7 +80,8 @@ export default function Search() {
     }
   };
   return (
-    <div>
+    <main className={pageStyles.mainContent}>
+       <div className={pageStyles.searchHolder}>
       <SearchBar onSearch={handleSearch} />
       <ul>
         {pokemonList.map((pokemon, index) => (
@@ -87,10 +90,13 @@ export default function Search() {
               img={pokemon.sprites?.front_default}
               name={pokemon.name}
               types={pokemon.types || []}
+              // onFavorite={addFavorite}
             />
           </li>
         ))}
       </ul>
     </div>
+    </main>
+   
   );
 }
