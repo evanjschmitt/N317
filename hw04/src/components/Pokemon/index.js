@@ -1,11 +1,13 @@
 "use client";
+import Link from "next/link";
 import pokemonStyles from "./pokemon.module.css";
 import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
 
 export default function PokemonCard({ img = "", name = "", types = [] }) {
   const typesJsx = types.map((typeObj) => typeObj.type.name).join(", ");
 
-  // Set up local state for favorited status
+  //My favorites code was helped GREATLY by ChatGPT, escpecially for bug fixing.
   const [isFavorited, setIsFavorited] = useState(false);
 
   // Load favorites from localStorage on mount
@@ -14,15 +16,19 @@ export default function PokemonCard({ img = "", name = "", types = [] }) {
     setIsFavorited(storedFavorites.includes(name));
   }, [name]);
 
-  // Toggle favorite status and store in localStorage
   const toggleFavorite = () => {
     const storedFavorites = JSON.parse(localStorage.getItem("favorites")) || [];
     const updatedFavorites = isFavorited
       ? storedFavorites.filter((fav) => fav !== name)
       : [...storedFavorites, name];
-
     localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
     setIsFavorited(!isFavorited);
+  };
+
+  const router = useRouter();
+  const { pokemonName } = router.query || {};
+  const viewDetails = () => {
+    router.push(`/${name}`);
   };
 
   return (
@@ -36,6 +42,7 @@ export default function PokemonCard({ img = "", name = "", types = [] }) {
         <button onClick={toggleFavorite}>
           {isFavorited ? "Remove from Favorites" : "Add to Favorites"}
         </button>
+        <button onClick={viewDetails}>View Details</button>
       </div>
     </div>
   );
